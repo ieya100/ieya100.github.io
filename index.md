@@ -61,7 +61,6 @@ function applyTheme(theme) {
   document.documentElement.className = theme;
   localStorage.setItem("theme", theme);
 
-  // Update Utterances iframe theme
   const utterances = document.querySelector("iframe.utterances-frame");
   if (utterances) {
     utterances.contentWindow.postMessage(
@@ -70,7 +69,6 @@ function applyTheme(theme) {
     );
   }
 
-  // Update toggle button text
   const btn = document.querySelector(".theme-toggle");
   if (btn) {
     btn.innerHTML = theme === "dark-mode" ? "☀️ Light Mode" : "🌙 Dark Mode";
@@ -83,9 +81,10 @@ function toggleTheme() {
   applyTheme(next);
 }
 
-// Load saved theme OR system preference
-applyTheme(localStorage.getItem("theme") ||
-          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark-mode" : "light-mode"));
+applyTheme(
+  localStorage.getItem("theme") ||
+  (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark-mode" : "light-mode")
+);
 </script>
 
 <script src="https://utteranc.es/client.js"
@@ -93,5 +92,8 @@ applyTheme(localStorage.getItem("theme") ||
         issue-term="pathname"
         theme="github-dark"
         crossorigin="anonymous"
+        async>
+</script>
+
         async>
 </script>
