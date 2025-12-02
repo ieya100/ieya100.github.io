@@ -27,7 +27,6 @@
 - Unsafe Shutdowns: 13
 - Controller Busy Time: 109
 
-- 
 ## Анализ
 ### 1. Большое количество Error Log Entries (>200k)
 Это не ошибка данных, но признак:
