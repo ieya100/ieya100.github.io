@@ -91,6 +91,5 @@ applyTheme(
         issue-term="pathname"
         theme="github-dark"
         crossorigin="anonymous"
-        async>
-</script>
+        async> </script>
 
