@@ -74,7 +74,47 @@ a {
 /* Markdown elements */
 .dark-mode a { color: #4ea3ff; }
 .light-mode a { color: #0645ad; }
+/* Основной блок GitHub Pages */
+.dark-mode .markdown-body {
+  background: #0d1117 !important;
+  color: #c9d1d9 !important;
+}
 
+.light-mode .markdown-body {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Ссылки */
+.dark-mode .markdown-body a {
+  color: #58a6ff !important;
+}
+
+.light-mode .markdown-body a {
+  color: #0969da !important;
+}
+
+/* Заголовки */
+.dark-mode .markdown-body h1,
+.dark-mode .markdown-body h2,
+.dark-mode .markdown-body h3,
+.dark-mode .markdown-body h4 {
+  color: #e6edf3 !important;
+}
+
+/* Линии */
+.dark-mode .markdown-body hr {
+  border-color: #30363d !important;
+}
+
+/* Блоки кода */
+.dark-mode .markdown-body pre,
+.dark-mode .markdown-body code {
+  background: #161b22 !important;
+  color: #c9d1d9 !important;
+}
+
+  
 </style>
 
 <div class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</div>
