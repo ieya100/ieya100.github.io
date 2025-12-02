@@ -1,4 +1,5 @@
 <style>
+/* ===== Toggle button ===== */
 .theme-toggle {
   position: fixed;
   top: 15px;
@@ -16,18 +17,29 @@
   background: #ddd;
   color: #000;
 }
+
+/* ===== PAGE THEMES ===== */
+.dark-mode {
+  background: #111;
+  color: #eee;
+}
+
+.light-mode {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Markdown elements */
+.dark-mode a { color: #4ea3ff; }
+.light-mode a { color: #0645ad; }
+
 </style>
 
 <div class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</div>
 
 # Hardware Investigation Archive
 
-Добро пожаловать в личный архив технических исследований и кейсов, связанных с
-железом: SSD, NVMe-контроллерами, ноутбуками, перегревом, нестабильным поведением
-при пробуждении, электронными сбоями и другими реальными случаями из практики.
-
-Здесь сохранены материалы, которые часто удаляются на Reddit, форумах или в соцсетях, 
-но представляют ценность для инженеров, энтузиастов и тех, кто сталкивается с редкими проблемами оборудования.
+Добро пожаловать в личный архив технических исследований и кейсов...
 
 ## Разделы
 
@@ -71,10 +83,11 @@ function toggleTheme() {
   applyTheme(next);
 }
 
-// Load saved theme on startup
-applyTheme(localStorage.getItem("theme") || 
-           (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark-mode" : "light-mode"));
+// Load saved theme OR system preference
+applyTheme(localStorage.getItem("theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark-mode" : "light-mode"));
 </script>
+
 <script src="https://utteranc.es/client.js"
         repo="ieya100/ieya100.github.io"
         issue-term="pathname"
