@@ -1,3 +1,7 @@
+---
+layout: default
+title: Hardware Investigation Archive
+---
 # Lexar NM790 Sleep Freeze Investigation  
 ### NVMe Maxio MAP1602 — зависания после пробуждения, 100% disk usage и Error Log 215k+
 
@@ -56,16 +60,7 @@
 Поведение воспроизводится и описывается другими пользователями NVMe на MAP1602.
 
 Рекомендация:  
-Для ноутбуков с Modern Standby лучше избегать NVMe на Maxio, пока производители не выпускают обновлённые прошивки.
-
-<script src="https://utteranc.es/client.js"
-        repo="ieya100/ieya100.github.io"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>     
-        
+Для ноутбуков с Modern Standby лучше избегать NVMe на Maxio, пока производители не выпускают обновлённые прошивки.    
         
         
         
