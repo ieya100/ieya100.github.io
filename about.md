@@ -1,3 +1,8 @@
+---
+layout: default
+title: Hardware Investigation Archive
+---
+
 # About
 
 Этот сайт — личный технический архив.  
