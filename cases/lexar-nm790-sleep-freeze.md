@@ -58,8 +58,13 @@
 Рекомендация:  
 Для ноутбуков с Modern Standby лучше избегать NVMe на Maxio, пока производители не выпускают обновлённые прошивки.
 
-< script  src = " https://utteranc.es/client.js "
- repo = " ieya100/ieya100.github.io " issue-term = " pathname " theme = " github-light " crossorigin = " anonymous " async > </ script >        
+<script src="https://utteranc.es/client.js"
+        repo="ieya100/ieya100.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>     
         
         
         
