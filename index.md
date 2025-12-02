@@ -1,4 +1,46 @@
 <style>
+/* Light mode (по умолчанию GitHub Pages) */
+body {
+  background: #ffffff;
+  color: #24292e;
+}
+
+a {
+  color: #0969da;
+}
+
+/* 🌙 Dark mode */
+.dark-mode body {
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
+.dark-mode a {
+  color: #58a6ff;
+}
+
+.dark-mode hr {
+  border-color: #30363d;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4 {
+  color: #e6edf3;
+}
+
+.dark-mode li {
+  color: #c9d1d9;
+}
+
+/* Фон блоков кода */
+.dark-mode pre,
+.dark-mode code {
+  background: #161b22;
+  color: #c9d1d9;
+}
+
 /* ===== Toggle button ===== */
 .theme-toggle {
   position: fixed;
