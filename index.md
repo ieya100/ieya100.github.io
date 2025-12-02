@@ -43,6 +43,7 @@
 ---
 
 Материалы обновляются по мере появления новых кейсов.
+
 <script>
 function applyTheme(theme) {
   document.documentElement.className = theme;
