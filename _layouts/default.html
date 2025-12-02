@@ -99,11 +99,22 @@
   
 {% include analytics.html %}
 
+  {% if page.lang == "en" %}
+<link rel="alternate" href="https://ieya100.github.io/" hreflang="ru" />
+<link rel="alternate" href="https://ieya100.github.io/en/" hreflang="en" />
+{% else %}
+<link rel="alternate" href="https://ieya100.github.io/" hreflang="ru" />
+<link rel="alternate" href="https://ieya100.github.io/en/" hreflang="en" />
+{% endif %}
+
 </head>
 <body>
 
 <div class="sidebar">
   <h2>Hardware Archive</h2>
+  <div style="margin: 10px 0;">
+  <a href="/">🇷🇺 RU</a> | <a href="/en/">🇬🇧 EN</a>
+</div>
 
   <ul>
     <li><strong>Исследования и кейсы</strong></li>
