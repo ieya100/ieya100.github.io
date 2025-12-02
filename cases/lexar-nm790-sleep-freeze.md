@@ -57,3 +57,13 @@
 
 Рекомендация:  
 Для ноутбуков с Modern Standby лучше избегать NVMe на Maxio, пока производители не выпускают обновлённые прошивки.
+
+<hr>
+
+<script src="https://utteranc.es/client.js"
+        repo="ieya100/ieya100.github.io"
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
