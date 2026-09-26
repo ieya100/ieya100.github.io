@@ -20,11 +20,13 @@
 
 - key: asus-proart-power
   ru:
-    status: draft
-    title: ASUS ProArt — разъём питания
+    status: published
+    title: ASUS ProArt PX13 — пожар разъёма питания
+    url: /cases/asus-proart-px13-power-connector-fire.html
   en:
-    status: draft
-    title: ASUS ProArt — power connector
+    status: published
+    title: ASUS ProArt PX13 — power connector fire
+    url: /en/cases/asus-proart-px13-power-connector-fire.html
 
 - key: razer-blade-14-modern-standby
   ru:
