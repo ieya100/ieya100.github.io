@@ -26,4 +26,10 @@ sitemap: false
   <url>
     <loc>https://ieya100.github.io/cases/lexar-nm790-sleep-freeze.html</loc>
   </url>
+  <url>
+    <loc>https://ieya100.github.io/cases/asus-proart-px13-power-connector-fire.html</loc>
+  </url>
+  <url>
+    <loc>https://ieya100.github.io/en/cases/asus-proart-px13-power-connector-fire.html</loc>
+  </url>
 </urlset>
