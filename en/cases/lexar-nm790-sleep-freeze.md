@@ -6,6 +6,7 @@ lang: en
 translation_key: lexar-nm790-sleep-freeze
 alternate_url: /cases/lexar-nm790-sleep-freeze.html
 robots: noindex, follow
+sitemap: false
 ---
 
 # Lexar NM790 — Sleep Freeze Issue
@@ -13,4 +14,3 @@ robots: noindex, follow
 The English version of this investigation is still in progress.
 
 [Read the complete Russian version]({{ page.alternate_url | relative_url }}).
-

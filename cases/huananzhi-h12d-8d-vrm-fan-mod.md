@@ -5,6 +5,9 @@ description: Исправление затруднённого выхода во
 lang: ru
 translation_key: huananzhi-h12d-8d-vrm
 alternate_url: /en/cases/huananzhi-h12d-8d-vrm-fan-mod.html
+image: /cases/images/huananzhi-h12d-8d/washers-holder-v1.jpg
+date: 2026-09-26
+last_modified_at: 2026-09-26
 ---
 
 # Доработка охлаждения VRM Huananzhi H12D-8D Ver2.0: меньше шума штатного вентилятора

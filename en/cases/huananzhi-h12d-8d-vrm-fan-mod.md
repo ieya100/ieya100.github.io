@@ -5,6 +5,9 @@ description: A simple Huananzhi H12D-8D Ver2.0 VRM cooling modification using wa
 lang: en
 translation_key: huananzhi-h12d-8d-vrm
 alternate_url: /cases/huananzhi-h12d-8d-vrm-fan-mod.html
+image: /cases/images/huananzhi-h12d-8d/washers-holder-v1.jpg
+date: 2026-09-26
+last_modified_at: 2026-09-26
 ---
 
 # Improving VRM Cooling on Huananzhi H12D-8D Ver2.0: Reducing Stock Fan Noise
@@ -110,4 +113,3 @@ For a useful comparison, please include:
 Results can be posted as a GitHub Issue or a comment below. I will add useful measurements to this article with credit to the author.
 
 > Disconnect the system completely from power before attempting this modification. Make sure that the washers and screws cannot touch the motherboard, that the impeller rotates freely, and that the fan cable cannot reach the blades.
-

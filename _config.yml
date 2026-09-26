@@ -4,4 +4,8 @@ url: https://ieya100.github.io
 baseurl: ""
 lang: ru
 markdown: kramdown
-
+author:
+  name: ieya100
+  url: https://github.com/ieya100
+exclude:
+  - README.md

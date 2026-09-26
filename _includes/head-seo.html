@@ -1,4 +1,7 @@
 {% assign current_lang = page.lang | default: site.lang | default: "ru" %}
+{% assign seo_title = page.title | default: site.title %}
+{% assign seo_description = page.description | default: site.description %}
+{% assign canonical_url = page.url | absolute_url %}
 <link rel="canonical" href="{{ page.url | absolute_url }}" />
 {% if current_lang == "en" %}
   <link rel="alternate" href="{{ page.url | absolute_url }}" hreflang="en" />
@@ -14,4 +17,49 @@
   <link rel="alternate" href="{{ page.url | absolute_url }}" hreflang="x-default" />
 {% endif %}
 {% if page.robots %}<meta name="robots" content="{{ page.robots }}" />{% endif %}
+<meta name="author" content="{{ site.author.name }}" />
 
+<meta property="og:title" content="{{ seo_title | escape }}" />
+<meta property="og:description" content="{{ seo_description | escape }}" />
+<meta property="og:url" content="{{ canonical_url }}" />
+<meta property="og:site_name" content="{{ site.title | escape }}" />
+<meta property="og:type" content="{% if page.translation_key == 'home' %}website{% elsif page.translation_key == 'about' %}website{% else %}article{% endif %}" />
+<meta property="og:locale" content="{% if current_lang == 'en' %}en_US{% else %}ru_RU{% endif %}" />
+{% if page.alternate_url %}<meta property="og:locale:alternate" content="{% if current_lang == 'en' %}ru_RU{% else %}en_US{% endif %}" />{% endif %}
+{% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}" />{% endif %}
+
+<meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}" />
+<meta name="twitter:title" content="{{ seo_title | escape }}" />
+<meta name="twitter:description" content="{{ seo_description | escape }}" />
+{% if page.image %}<meta name="twitter:image" content="{{ page.image | absolute_url }}" />{% endif %}
+
+{% assign schema_type = "WebPage" %}
+{% if page.translation_key == "home" %}
+  {% assign schema_type = "WebSite" %}
+{% elsif page.translation_key and page.translation_key != "about" %}
+  {% assign schema_type = "TechArticle" %}
+{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": {{ schema_type | jsonify }},
+  "name": {{ seo_title | jsonify }},
+  "headline": {{ seo_title | jsonify }},
+  "description": {{ seo_description | jsonify }},
+  "inLanguage": {{ current_lang | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ canonical_url | jsonify }}
+  },
+  {% if page.image %}"image": {{ page.image | absolute_url | jsonify }},{% endif %}
+  {% if page.date %}"datePublished": {{ page.date | date_to_xmlschema | jsonify }},{% endif %}
+  {% if page.last_modified_at %}"dateModified": {{ page.last_modified_at | date_to_xmlschema | jsonify }},{% endif %}
+  "author": {
+    "@type": "Person",
+    "name": {{ site.author.name | jsonify }},
+    "url": {{ site.author.url | jsonify }}
+  },
+  "isAccessibleForFree": true
+}
+</script>
