@@ -1,0 +1,43 @@
+- key: lexar-nm790-sleep-freeze
+  ru:
+    status: published
+    title: Lexar NM790 — зависания после сна
+    url: /cases/lexar-nm790-sleep-freeze.html
+  en:
+    status: draft
+    title: Lexar NM790 — sleep freeze
+    url: /en/cases/lexar-nm790-sleep-freeze.html
+
+- key: huananzhi-h12d-8d-vrm
+  ru:
+    status: published
+    title: Huananzhi H12D-8D — охлаждение VRM
+    url: /cases/huananzhi-h12d-8d-vrm-fan-mod.html
+  en:
+    status: missing
+    title: Huananzhi H12D-8D — VRM cooling
+
+- key: asus-proart-power
+  ru:
+    status: draft
+    title: ASUS ProArt — разъём питания
+  en:
+    status: draft
+    title: ASUS ProArt — power connector
+
+- key: razer-blade-14-modern-standby
+  ru:
+    status: draft
+    title: Razer Blade 14 — Modern Standby
+  en:
+    status: draft
+    title: Razer Blade 14 — Modern Standby
+
+- key: maxio-map1602
+  ru:
+    status: draft
+    title: Maxio MAP1602 — ошибки контроллера
+  en:
+    status: draft
+    title: Maxio MAP1602 — controller errors
+

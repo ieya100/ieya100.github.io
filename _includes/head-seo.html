@@ -1,0 +1,17 @@
+{% assign current_lang = page.lang | default: site.lang | default: "ru" %}
+<link rel="canonical" href="{{ page.url | absolute_url }}" />
+{% if current_lang == "en" %}
+  <link rel="alternate" href="{{ page.url | absolute_url }}" hreflang="en" />
+  {% if page.alternate_url %}
+    <link rel="alternate" href="{{ page.alternate_url | absolute_url }}" hreflang="ru" />
+    <link rel="alternate" href="{{ page.alternate_url | absolute_url }}" hreflang="x-default" />
+  {% endif %}
+{% else %}
+  <link rel="alternate" href="{{ page.url | absolute_url }}" hreflang="ru" />
+  {% if page.alternate_url %}
+    <link rel="alternate" href="{{ page.alternate_url | absolute_url }}" hreflang="en" />
+  {% endif %}
+  <link rel="alternate" href="{{ page.url | absolute_url }}" hreflang="x-default" />
+{% endif %}
+{% if page.robots %}<meta name="robots" content="{{ page.robots }}" />{% endif %}
+

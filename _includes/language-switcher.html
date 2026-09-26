@@ -1,0 +1,22 @@
+{% assign current_lang = page.lang | default: site.lang | default: "ru" %}
+{% assign labels = site.data.ui[current_lang] %}
+<nav class="language-switcher" aria-label="{{ labels.language_label }}">
+  {% if current_lang == "ru" %}
+    <span class="language-current" lang="ru" aria-current="page">🇷🇺 RU</span>
+    <span aria-hidden="true">|</span>
+    {% if page.alternate_url %}
+      <a href="{{ page.alternate_url | relative_url }}" lang="en" hreflang="en">🇬🇧 EN</a>
+    {% else %}
+      <span class="language-disabled" lang="en" title="{{ labels.unavailable_translation }}">🇬🇧 EN</span>
+    {% endif %}
+  {% else %}
+    {% if page.alternate_url %}
+      <a href="{{ page.alternate_url | relative_url }}" lang="ru" hreflang="ru">🇷🇺 RU</a>
+    {% else %}
+      <span class="language-disabled" lang="ru" title="{{ labels.unavailable_translation }}">🇷🇺 RU</span>
+    {% endif %}
+    <span aria-hidden="true">|</span>
+    <span class="language-current" lang="en" aria-current="page">🇬🇧 EN</span>
+  {% endif %}
+</nav>
+

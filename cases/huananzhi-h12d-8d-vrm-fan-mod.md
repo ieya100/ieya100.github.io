@@ -3,6 +3,7 @@ layout: default
 title: Доработка охлаждения VRM Huananzhi H12D-8D Ver2.0
 description: Исправление затруднённого выхода воздуха из-под штатного вентилятора VRM на Huananzhi H12D-8D Ver2.0 — шайбы, открытый радиатор и снижение шума.
 lang: ru
+translation_key: huananzhi-h12d-8d-vrm
 ---
 
 # Доработка охлаждения VRM Huananzhi H12D-8D Ver2.0: меньше шума штатного вентилятора

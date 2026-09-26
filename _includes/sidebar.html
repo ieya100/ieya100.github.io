@@ -1,0 +1,20 @@
+{% assign current_lang = page.lang | default: site.lang | default: "ru" %}
+{% assign labels = site.data.ui[current_lang] %}
+<nav class="site-navigation" aria-label="{{ labels.cases_heading }}">
+  <ul>
+    <li class="navigation-heading">{{ labels.cases_heading }}</li>
+    {% for item in site.data.cases %}
+      {% assign localized = item[current_lang] %}
+      {% if localized and localized.status == "published" %}
+        <li>
+          <a href="{{ localized.url | relative_url }}"{% if page.url == localized.url %} aria-current="page"{% endif %}>{{ localized.title }}</a>
+        </li>
+      {% elsif localized and localized.status == "draft" %}
+        <li class="navigation-draft">{{ localized.title }} <small>({{ labels.draft_label }})</small></li>
+      {% endif %}
+    {% endfor %}
+    <li class="navigation-heading navigation-section">{{ labels.about_heading }}</li>
+    <li><a href="{{ labels.about_url | relative_url }}"{% if page.url == labels.about_url %} aria-current="page"{% endif %}>{{ labels.about_title }}</a></li>
+  </ul>
+</nav>
+

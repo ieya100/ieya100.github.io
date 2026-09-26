@@ -1,0 +1,23 @@
+ru:
+  cases_heading: Исследования и кейсы
+  about_heading: О сайте
+  about_title: О проекте
+  about_url: /about.html
+  draft_label: в разработке
+  language_label: Выбор языка
+  unavailable_translation: Перевод пока не готов
+  skip_to_content: Перейти к содержанию
+  dark_mode: Тёмная тема
+  light_mode: Светлая тема
+
+en:
+  cases_heading: Investigations & case studies
+  about_heading: About
+  about_title: About the project
+  about_url: /en/about.html
+  draft_label: in progress
+  language_label: Language selection
+  unavailable_translation: Translation not available yet
+  skip_to_content: Skip to content
+  dark_mode: Dark mode
+  light_mode: Light mode

@@ -1,8 +1,12 @@
 ---
 layout: default
-title: Hardware Investigation Archive
+title: Lexar NM790 — зависания после сна и загрузка диска 100%
+description: Исследование зависаний Lexar NM790 на контроллере Maxio MAP1602 после выхода из Modern Standby.
+lang: ru
+translation_key: lexar-nm790-sleep-freeze
 ---
-# Lexar NM790 Sleep Freeze Investigation  
+
+# Lexar NM790 Sleep Freeze Investigation
 ### NVMe Maxio MAP1602 — зависания после пробуждения, 100% disk usage и Error Log 215k+
 
 ## Краткое описание проблемы
@@ -61,3 +65,4 @@ title: Hardware Investigation Archive
 
 Рекомендация:  
 Для ноутбуков с Modern Standby лучше избегать NVMe на Maxio, пока производители не выпускают обновлённые прошивки.
+

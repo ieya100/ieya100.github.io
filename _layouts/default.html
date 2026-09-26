@@ -1,183 +1,199 @@
+{% assign page_lang = page.lang | default: site.lang | default: "ru" %}
+{% assign labels = site.data.ui[page_lang] %}
 <!DOCTYPE html>
-<html lang="ru" class="light-mode">
+<html lang="{{ page_lang }}" class="light-mode">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ page.title }}</title>
-  {% if page.description %}<meta name="description" content="{{ page.description | escape }}" />{% endif %}
+  <title>{{ page.title | default: site.title }}</title>
+  {% if page.description %}<meta name="description" content="{{ page.description | escape }}" />{% elsif site.description %}<meta name="description" content="{{ site.description | escape }}" />{% endif %}
+  {% include head-seo.html %}
 
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-      display: flex;
       min-height: 100vh;
       background: #ffffff;
       color: #24292e;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.55;
     }
 
-    /* SIDEBAR */
+    a { color: #0969da; }
+
+    .skip-link {
+      position: fixed;
+      top: -60px;
+      left: 12px;
+      z-index: 10000;
+      padding: 8px 12px;
+      background: #ffffff;
+      color: #0969da;
+    }
+
+    .skip-link:focus { top: 12px; }
+
     .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
       width: 260px;
+      overflow-y: auto;
+      padding: 20px;
       background: #f6f8fa;
       border-right: 1px solid #d0d7de;
-      padding: 20px;
-      box-sizing: border-box;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      overflow-y: auto;
     }
 
-    .sidebar h2 {
-      margin-top: 0;
+    .site-title {
+      display: inline-block;
+      margin: 0;
+      color: inherit;
       font-size: 20px;
       font-weight: 600;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .sidebar li {
-      margin: 6px 0;
-    }
-
-    .sidebar a {
       text-decoration: none;
-      color: #0969da;
-      font-size: 15px;
     }
 
-    .sidebar a:hover {
-      text-decoration: underline;
+    .language-switcher { margin: 10px 0 18px; }
+    .language-switcher a { text-decoration: none; }
+    .language-switcher a:hover { text-decoration: underline; }
+    .language-current { font-weight: 600; }
+    .language-disabled { cursor: help; opacity: 0.45; }
+
+    .site-navigation ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    /* CONTENT */
+    .site-navigation li { margin: 7px 0; }
+    .site-navigation a { font-size: 15px; text-decoration: none; }
+    .site-navigation a:hover { text-decoration: underline; }
+    .site-navigation a[aria-current="page"] { color: inherit; font-weight: 600; }
+    .navigation-heading { margin-top: 0; font-weight: 700; }
+    .navigation-section { margin-top: 24px !important; }
+    .navigation-draft { color: #57606a; font-size: 14px; }
+    .navigation-draft small { white-space: nowrap; }
+
     .content {
+      width: calc(100% - 260px);
+      max-width: 960px;
       margin-left: 260px;
       padding: 30px;
-      max-width: 900px;
     }
 
-    /* DARK MODE */
-    .dark-mode body {
-      background: #0d1117;
-      color: #c9d1d9;
+    .content img,
+    .content video {
+      max-width: 100%;
+      height: auto;
     }
 
-    .dark-mode .sidebar {
-      background: #161b22;
-      border-color: #30363d;
-      color: #c9d1d9;
-    }
+    .content pre { overflow-x: auto; }
+    .content h1 { line-height: 1.2; overflow-wrap: anywhere; }
 
-    .dark-mode .sidebar a {
-      color: #58a6ff;
-    }
-
-    .dark-mode .content {
-      color: #c9d1d9;
-    }
-
-    /* TOGGLE BUTTON */
     .theme-toggle {
       position: fixed;
       top: 15px;
       right: 15px;
+      z-index: 9999;
+      padding: 6px 10px;
+      border: 0;
+      border-radius: 8px;
       background: #222;
       color: #fff;
-      border-radius: 8px;
-      padding: 6px 10px;
       cursor: pointer;
       font-size: 14px;
-      z-index: 9999;
     }
+
     .light-mode .theme-toggle { background: #ddd; color: #000; }
+    .dark-mode body { background: #0d1117; color: #c9d1d9; }
+    .dark-mode .sidebar { background: #161b22; border-color: #30363d; color: #c9d1d9; }
+    .dark-mode a, .dark-mode .sidebar a { color: #58a6ff; }
+    .dark-mode .site-navigation a[aria-current="page"] { color: #c9d1d9; }
+    .dark-mode .navigation-draft { color: #8b949e; }
+
+    @media (max-width: 760px) {
+      .sidebar {
+        position: static;
+        width: 100%;
+        max-height: none;
+        border-right: 0;
+        border-bottom: 1px solid #d0d7de;
+      }
+
+      .content {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        padding: 22px 18px 36px;
+      }
+
+      .theme-toggle {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+      }
+
+      .site-title { padding-right: 110px; }
+    }
   </style>
-  
-{% include analytics.html %}
 
-  {% if page.lang == "en" %}
-<link rel="alternate" href="https://ieya100.github.io/" hreflang="ru" />
-<link rel="alternate" href="https://ieya100.github.io/en/" hreflang="en" />
-{% else %}
-<link rel="alternate" href="https://ieya100.github.io/" hreflang="ru" />
-<link rel="alternate" href="https://ieya100.github.io/en/" hreflang="en" />
-{% endif %}
-
+  {% include analytics.html %}
 </head>
 <body>
+  <a class="skip-link" href="#main-content">{{ labels.skip_to_content }}</a>
 
-<div class="sidebar">
-  <h2>Hardware Archive</h2>
-  <div style="margin: 10px 0;">
-  <a href="/">🇷🇺 RU</a> | <a href="/en/">🇬🇧 EN</a>
-</div>
+  <aside class="sidebar">
+    <a class="site-title" href="{% if page_lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">Hardware Archive</a>
+    {% include language-switcher.html %}
+    {% include sidebar.html %}
+  </aside>
 
-  <ul>
-    <li><strong>Исследования и кейсы</strong></li>
-    <li><a href="/cases/lexar-nm790-sleep-freeze.html">Lexar NM790 — зависания после сна</a></li>
-    <li><a href="/cases/huananzhi-h12d-8d-vrm-fan-mod.html">Huananzhi H12D-8D — охлаждение VRM</a></li>
-    <li><a href="/cases/proart-power.html">ASUS ProArt — разъём питания</a></li>
-    <li><a href="/cases/razer-blade-14.html">Razer Blade 14 — Modern Standby</a></li>
-    <li><a href="/cases/map1602.html">Maxio MAP1602 — ошибки контроллера</a></li>
+  <main class="content" id="main-content">
+    <button class="theme-toggle" type="button" onclick="toggleTheme()" data-dark-label="{{ labels.dark_mode }}" data-light-label="{{ labels.light_mode }}">🌙 {{ labels.dark_mode }}</button>
+    {{ content }}
+    <br><br>
 
-    <br>
-    <li><strong>О сайте</strong></li>
-    <li><a href="/about.html">О проекте</a></li>
-  </ul>
-</div>
+    <script src="https://utteranc.es/client.js"
+          repo="ieya100/ieya100.github.io"
+          issue-term="pathname"
+          theme="github-dark"
+          crossorigin="anonymous"
+          async>
+    </script>
+  </main>
 
-<div class="content">
-  <div class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</div>
+  <script>
+  function applyTheme(theme) {
+    document.documentElement.className = theme;
+    localStorage.setItem("theme", theme);
 
-  {{ content }}
+    const utterances = document.querySelector("iframe.utterances-frame");
+    if (utterances) {
+      utterances.contentWindow.postMessage(
+        { type: "set-theme", theme: theme === "dark-mode" ? "github-dark" : "github-light" },
+        "https://utteranc.es"
+      );
+    }
 
-  <br><br>
-
-  <!-- UTTERANCES COMMENTS -->
-  <script src="https://utteranc.es/client.js"
-        repo="ieya100/ieya100.github.io"
-        issue-term="pathname"
-        theme="github-dark"
-        crossorigin="anonymous"
-        async>
-  </script>
-</div>
-
-<script>
-function applyTheme(theme) {
-  document.documentElement.className = theme;
-  localStorage.setItem("theme", theme);
-
-  const utterances = document.querySelector("iframe.utterances-frame");
-  if (utterances) {
-    utterances.contentWindow.postMessage(
-      { type: "set-theme", theme: theme === "dark-mode" ? "github-dark" : "github-light" },
-      "https://utteranc.es"
-    );
+    const toggle = document.querySelector(".theme-toggle");
+    toggle.textContent = theme === "dark-mode"
+      ? "☀️ " + toggle.dataset.lightLabel
+      : "🌙 " + toggle.dataset.darkLabel;
   }
 
-  document.querySelector(".theme-toggle").innerHTML =
-    theme === "dark-mode" ? "☀️ Light Mode" : "🌙 Dark Mode";
-}
+  function toggleTheme() {
+    const next =
+      (localStorage.getItem("theme") || "light-mode") === "light-mode"
+        ? "dark-mode"
+        : "light-mode";
+    applyTheme(next);
+  }
 
-function toggleTheme() {
-  const next =
-    (localStorage.getItem("theme") || "light-mode") === "light-mode"
-      ? "dark-mode"
-      : "light-mode";
-  applyTheme(next);
-}
-
-applyTheme(
-  localStorage.getItem("theme") ||
-    (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark-mode" : "light-mode")
-);
-</script>
-
+  applyTheme(
+    localStorage.getItem("theme") ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark-mode" : "light-mode")
+  );
+  </script>
 </body>
 </html>
