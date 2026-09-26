@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ page.title }}</title>
+  {% if page.description %}<meta name="description" content="{{ page.description | escape }}" />{% endif %}
 
   <style>
     body {
@@ -119,6 +120,7 @@
   <ul>
     <li><strong>Исследования и кейсы</strong></li>
     <li><a href="/cases/lexar-nm790-sleep-freeze.html">Lexar NM790 — зависания после сна</a></li>
+    <li><a href="/cases/huananzhi-h12d-8d-vrm-fan-mod.html">Huananzhi H12D-8D — охлаждение VRM</a></li>
     <li><a href="/cases/proart-power.html">ASUS ProArt — разъём питания</a></li>
     <li><a href="/cases/razer-blade-14.html">Razer Blade 14 — Modern Standby</a></li>
     <li><a href="/cases/map1602.html">Maxio MAP1602 — ошибки контроллера</a></li>
