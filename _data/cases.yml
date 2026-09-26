@@ -14,8 +14,9 @@
     title: Huananzhi H12D-8D — охлаждение VRM
     url: /cases/huananzhi-h12d-8d-vrm-fan-mod.html
   en:
-    status: missing
+    status: published
     title: Huananzhi H12D-8D — VRM cooling
+    url: /en/cases/huananzhi-h12d-8d-vrm-fan-mod.html
 
 - key: asus-proart-power
   ru:
@@ -40,4 +41,3 @@
   en:
     status: draft
     title: Maxio MAP1602 — controller errors
-
