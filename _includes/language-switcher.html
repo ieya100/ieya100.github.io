@@ -1,17 +1,30 @@
 {% assign current_lang = page.lang | default: site.lang | default: "ru" %}
 {% assign labels = site.data.ui[current_lang] %}
+{% assign counterpart_url = page.alternate_url %}
+{% if counterpart_url == nil or counterpart_url == empty %}
+  {% for item in site.data.cases %}
+    {% if item.key == page.translation_key %}
+      {% if current_lang == "ru" and item.en.status == "published" %}
+        {% assign counterpart_url = item.en.url %}
+      {% elsif current_lang == "en" and item.ru.status == "published" %}
+        {% assign counterpart_url = item.ru.url %}
+      {% endif %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 <nav class="language-switcher" aria-label="{{ labels.language_label }}">
   {% if current_lang == "ru" %}
     <span class="language-current" lang="ru" aria-current="page">🇷🇺 RU</span>
     <span aria-hidden="true">|</span>
-    {% if page.alternate_url %}
-      <a href="{{ page.alternate_url | relative_url }}" lang="en" hreflang="en">🇬🇧 EN</a>
+    {% if counterpart_url and counterpart_url != empty %}
+      <a href="{{ counterpart_url | relative_url }}" lang="en" hreflang="en">🇬🇧 EN</a>
     {% else %}
       <span class="language-disabled" lang="en" title="{{ labels.unavailable_translation }}">🇬🇧 EN</span>
     {% endif %}
   {% else %}
-    {% if page.alternate_url %}
-      <a href="{{ page.alternate_url | relative_url }}" lang="ru" hreflang="ru">🇷🇺 RU</a>
+    {% if counterpart_url and counterpart_url != empty %}
+      <a href="{{ counterpart_url | relative_url }}" lang="ru" hreflang="ru">🇷🇺 RU</a>
     {% else %}
       <span class="language-disabled" lang="ru" title="{{ labels.unavailable_translation }}">🇷🇺 RU</span>
     {% endif %}
@@ -19,4 +32,3 @@
     <span class="language-current" lang="en" aria-current="page">🇬🇧 EN</span>
   {% endif %}
 </nav>
-
