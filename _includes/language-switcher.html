@@ -24,7 +24,6 @@ become stale. Front-matter alternate_url is used for home/about pages.
     {% endif %}
   {% endfor %}
 {% endif %}
-<!-- i18n-debug page-url={{ page.url }} page-key={{ page.translation_key }} page-alt={{ page.alternate_url }} first-key={{ site.data.cases[0].key }} first-en-status={{ site.data.cases[0].en.status }} matched={{ counterpart_url }} -->
 <nav class="language-switcher" aria-label="{{ labels.language_label }}">
   {% if current_lang == "ru" %}
     <span class="language-current" lang="ru" aria-current="page">🇷🇺 RU</span>
