@@ -32,4 +32,7 @@ sitemap: false
   <url>
     <loc>https://ieya100.github.io/en/cases/asus-proart-px13-power-connector-fire.html</loc>
   </url>
+  <url>
+    <loc>https://ieya100.github.io/cases/asus-x870-i-ddr5-bios-regression.html</loc>
+  </url>
 </urlset>
