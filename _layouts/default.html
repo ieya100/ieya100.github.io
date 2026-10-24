@@ -88,8 +88,15 @@
       height: auto;
     }
 
-    .content pre { overflow-x: auto; }
-    .content h1 { line-height: 1.2; overflow-wrap: anywhere; }
+    .content { min-width: 0; overflow-wrap: break-word; }
+    .content pre { max-width: 100%; overflow-x: auto; }
+    .content h1 { font-size: clamp(1.7rem, 3vw, 2.5rem); line-height: 1.22; overflow-wrap: anywhere; }
+    .content h2 { font-size: clamp(1.35rem, 2.2vw, 1.75rem); overflow-wrap: anywhere; }
+    .content h3 { font-size: clamp(1.1rem, 1.7vw, 1.35rem); overflow-wrap: anywhere; }
+    .content table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+    .content th, .content td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; text-align: left; vertical-align: top; }
+    .content th { font-weight: 600; }
+    .dark-mode .content th, .dark-mode .content td { border-bottom-color: #30363d; }
 
     .theme-toggle {
       position: fixed;
