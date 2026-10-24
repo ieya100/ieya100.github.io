@@ -1,7 +1,7 @@
 ---
 layout: default
 title: ASUS X870-I — регрессия BIOS и 96 ГБ DDR5
-description: Кейс: после обновления BIOS с 1022 до 1805 ASUS X870-I перестала запускаться с 2×48 ГБ DDR5; восстановление через USB BIOS FlashBack.
+description: "Кейс: после обновления BIOS с 1022 до 1805 ASUS X870-I перестала запускаться с 2×48 ГБ DDR5; восстановление через USB BIOS FlashBack."
 lang: ru
 translation_key: asus-x870-i-ddr5
 alternate_url: /en/cases/asus-x870-i-ddr5-bios-regression.html
