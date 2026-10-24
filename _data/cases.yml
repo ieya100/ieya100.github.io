@@ -1,3 +1,13 @@
+- key: asus-x870-i-ddr5
+  ru:
+    status: published
+    title: ASUS X870-I — регрессия BIOS и 96 ГБ DDR5
+    url: /cases/asus-x870-i-ddr5-bios-regression.html
+  en:
+    status: draft
+    title: ASUS X870-I — DDR5 BIOS regression
+    url: /en/cases/asus-x870-i-ddr5-bios-regression.html
+
 - key: lexar-nm790-sleep-freeze
   ru:
     status: published
