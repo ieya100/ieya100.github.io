@@ -1,13 +1,24 @@
 {% assign current_lang = page.lang | default: site.lang | default: "ru" %}
 {% assign labels = site.data.ui[current_lang] %}
 {% assign counterpart_url = page.alternate_url %}
-{% if counterpart_url == nil or counterpart_url == empty %}
-  {% for item in site.data.cases %}
-    {% if item.key == page.translation_key %}
-      {% if current_lang == "ru" and item.en.status == "published" %}
-        {% assign counterpart_url = item.en.url %}
-      {% elsif current_lang == "en" and item.ru.status == "published" %}
-        {% assign counterpart_url = item.ru.url %}
+
+{% comment %}
+The published-case registry is the authoritative source of translation URLs.
+Do not depend on front matter for individual cases, since either side can
+become stale. Front-matter alternate_url is used for home/about pages.
+{% endcomment %}
+{% if page.translation_key %}
+  {% for case_item in site.data.cases %}
+    {% if case_item.key == page.translation_key %}
+      {% assign counterpart_url = nil %}
+      {% if current_lang == "ru" %}
+        {% if case_item.en.status == "published" %}
+          {% assign counterpart_url = case_item.en.url %}
+        {% endif %}
+      {% else %}
+        {% if case_item.ru.status == "published" %}
+          {% assign counterpart_url = case_item.ru.url %}
+        {% endif %}
       {% endif %}
       {% break %}
     {% endif %}
@@ -17,13 +28,13 @@
   {% if current_lang == "ru" %}
     <span class="language-current" lang="ru" aria-current="page">🇷🇺 RU</span>
     <span aria-hidden="true">|</span>
-    {% if counterpart_url and counterpart_url != empty %}
+    {% if counterpart_url %}
       <a href="{{ counterpart_url | relative_url }}" lang="en" hreflang="en">🇬🇧 EN</a>
     {% else %}
       <span class="language-disabled" lang="en" title="{{ labels.unavailable_translation }}">🇬🇧 EN</span>
     {% endif %}
   {% else %}
-    {% if counterpart_url and counterpart_url != empty %}
+    {% if counterpart_url %}
       <a href="{{ counterpart_url | relative_url }}" lang="ru" hreflang="ru">🇷🇺 RU</a>
     {% else %}
       <span class="language-disabled" lang="ru" title="{{ labels.unavailable_translation }}">🇷🇺 RU</span>
