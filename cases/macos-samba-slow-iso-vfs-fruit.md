@@ -4,6 +4,7 @@ title: "macOS и Samba: как мы ускорили копирование ISO 
 description: "Практический разбор медленной передачи больших файлов с MacBook Air на Samba 4.22 в Debian LXC и ZFS: iperf3, SCP, SMB Multichannel, strict sync и vfs_fruit."
 lang: ru
 translation_key: macos-samba-slow-iso-vfs-fruit
+alternate_url: /en/cases/macos-samba-slow-iso-vfs-fruit.html
 date: 2026-11-08
 last_modified_at: 2026-11-08
 ---
