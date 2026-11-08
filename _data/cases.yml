@@ -4,8 +4,9 @@
     title: macOS и Samba — ускорение ISO с 11 до 54 МБ/с
     url: /cases/macos-samba-slow-iso-vfs-fruit.html
   en:
-    status: draft
-    title: macOS and Samba — slow ISO transfer investigation
+    status: published
+    title: macOS and Samba — from 11 to 54 MB/s
+    url: /en/cases/macos-samba-slow-iso-vfs-fruit.html
 
 - key: asus-x870-i-ddr5
   ru:
